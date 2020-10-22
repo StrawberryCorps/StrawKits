@@ -9,6 +9,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/*
+ * This file StorageUtil is part of a project StrawKits.StrawKits.
+ * It was created on 22/10/2020 22:28 by Eclixal.
+ * This file as the whole project shouldn't be modify by others without the express permission from StrawberryCorps author(s).
+ *  Also this comment shouldn't get remove from the file. (see Licence)
+ */
+
 public class StorageUtil {
 
     private static StorageUtil storageUtil;

@@ -6,6 +6,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.SQLException;
 
+/*
+ * This file StrawKits is part of a project StrawKits.StrawKits.
+ * It was created on 22/10/2020 22:28 by Eclixal.
+ * This file as the whole project shouldn't be modify by others without the express permission from StrawberryCorps author(s).
+ *  Also this comment shouldn't get remove from the file. (see Licence)
+ */
+
 public class StrawKits extends JavaPlugin {
 
     private static StrawKits STRAW_KITS;
@@ -28,7 +35,9 @@ public class StrawKits extends JavaPlugin {
         }
         this.getLogger().info("Starting to connect to the database... -> DONE");
 
+        this.getLogger().info("Starting loading listeners...");
 
+        this.getLogger().info("Starting loading listeners... -> DONE");
 
         this.getLogger().info("Plugin enabled in "+(System.currentTimeMillis() - begin)+" ms.");
         this.getLogger().info("######################## [" + this.getDescription().getName() + " - " + this.getDescription().getVersion() + "] #################################");

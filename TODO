@@ -1,0 +1,18 @@
+DB Structure:
+    - Kits
+        id name cooldown/maxuse items
+    - KitsHistory
+        id uuid Kits.id date
+
+Commands
+    - KitsAdmin
+        /kitadmin create - Passe le joueur en Gamemode CREATIVE (mode kitCreator)
+            Lorsque le joueur a fini la création de son kit il lui suffit de faire la commande
+            /kitadmin create <kitname> <delay>
+        /kitadmin list - Ouvre un GUI montrant chaque kit avec la possibilité de voir le contenu avec un clic gauche, la modification avec un clic droit et la suppression avec la touche drop
+        /kitadmin edit <kitname> - Edit un kit
+        /kitadmin delete <kitname>
+    - Kits
+        /kits - Ouvre le GUI de séléction des kits
+        /kits <kitname> - Donne le kit au joueur s'il a le droit de le recevoir
+

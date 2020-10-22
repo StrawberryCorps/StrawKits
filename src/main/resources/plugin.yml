@@ -1,0 +1,7 @@
+name: StrawKits
+main: bzh.strawberry.kits.StrawKits
+version: ${project.version}
+author: Eclixal
+api-version: 1.16
+website: https://strawberry.bzh
+description: Help you to create Kits on your server

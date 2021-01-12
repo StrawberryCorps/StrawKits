@@ -1,5 +1,6 @@
 package bzh.strawberry.kits;
 
+import bzh.strawberry.kits.manager.KitsManager;
 import bzh.strawberry.kits.util.StorageUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,6 +20,8 @@ public class StrawKits extends JavaPlugin {
 
     public StorageUtil storageUtil;
 
+    private KitsManager kitsManager;
+
     @Override
     public void onEnable() {
         STRAW_KITS = this;
@@ -34,6 +37,10 @@ public class StrawKits extends JavaPlugin {
             Bukkit.shutdown();
         }
         this.getLogger().info("Starting to connect to the database... -> DONE");
+
+        this.getLogger().info("Starting loading kits manager...");
+        this.kitsManager = new KitsManager();
+        this.getLogger().info("Starting loading kits manager... -> DONE");
 
         this.getLogger().info("Starting loading listeners...");
 

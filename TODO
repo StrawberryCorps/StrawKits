@@ -16,3 +16,12 @@ Commands
         /kits - Ouvre le GUI de séléction des kits
         /kits <kitname> - Donne le kit au joueur s'il a le droit de le recevoir
 
+KitsManager.java
+    - Charge les kits au démarrage du serveur
+    - List des kits
+    - GetKit by Name
+    - GiveKit by Name
+
+Kit.java
+    id  name delay/max  items
+    

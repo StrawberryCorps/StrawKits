@@ -34,13 +34,28 @@ public class StorageUtil {
         dataSource.setInitialSize(1);
         dataSource.setMaxTotal(10);
         this.dataSource = dataSource;
+
+        // Create the DB structure if not exists
+        try {
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "create table if not exists kits(id INTEGER constraint kits_pk primary key autoincrement, name varchar(255) not null, utilisation text not null);" +
+                    "create unique index if not exists kits_name_uindex on kits (name);" +
+                    "create table if not exists kit_content(kit_id integer references kits(id) on delete cascade, item text not null, position integer not null);" +
+                    "create unique index if not exists kit_content_kit_id_position_uindex on kit_content (kit_id, position);" +
+                    "create table if not exists kit_history(id integer constraint kit_history_pk primary key autoincrement, kit_id integer not null references kits(id) on delete cascade, uuid VARCHAR(32) not null, date timestamp default CURRENT_TIMESTAMP not null);"
+            );
+            preparedStatement.execute();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
-    public PreparedStatement preparedStatement(String sql) throws SQLException {
+    public Connection getConnection() throws SQLException {
         Connection connection =  this.dataSource.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        connection.close();
-        return preparedStatement;
+        return connection;
     }
 
     public void close() throws SQLException {

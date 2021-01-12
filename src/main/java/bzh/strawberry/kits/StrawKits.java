@@ -70,6 +70,14 @@ public class StrawKits extends JavaPlugin {
     }
 
     /**
+     * Get the instance to manipulate the kitsManager
+     * @return the kitsmanager instance
+     */
+    public KitsManager getKitsManager() {
+        return kitsManager;
+    }
+
+    /**
      * To return the instance of the class
      * @return the instance of the StrawKits
      */

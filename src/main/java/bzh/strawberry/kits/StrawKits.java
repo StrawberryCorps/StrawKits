@@ -1,6 +1,8 @@
 package bzh.strawberry.kits;
 
 import bzh.strawberry.kits.listener.inventory.PlayerInterface;
+import bzh.strawberry.kits.listener.players.PlayerJoin;
+import bzh.strawberry.kits.listener.players.PlayerQuit;
 import bzh.strawberry.kits.manager.KPlayer;
 import bzh.strawberry.kits.manager.KitsManager;
 import bzh.strawberry.kits.util.StorageUtil;
@@ -50,6 +52,8 @@ public class StrawKits extends JavaPlugin {
 
         this.getLogger().info("Starting loading listeners...");
         this.getServer().getPluginManager().registerEvents(new PlayerInterface(this), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerQuit(this), this);
         this.getLogger().info("Starting loading listeners... -> DONE");
 
         this.kPlayers = new ArrayList<>();

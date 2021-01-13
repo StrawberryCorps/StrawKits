@@ -1,5 +1,6 @@
 package bzh.strawberry.kits;
 
+import bzh.strawberry.kits.command.KitsCommand;
 import bzh.strawberry.kits.listener.inventory.PlayerInterface;
 import bzh.strawberry.kits.listener.players.PlayerJoin;
 import bzh.strawberry.kits.listener.players.PlayerQuit;
@@ -12,6 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 import java.util.UUID;
 
 /*
@@ -49,6 +51,10 @@ public class StrawKits extends JavaPlugin {
         this.getLogger().info("Starting loading kits...");
         this.kitsManager = new KitsManager();
         this.getLogger().info("Starting loading kits... -> DONE");
+
+        getLogger().info("Starting to load the commands...");
+        Objects.requireNonNull(getServer().getPluginCommand("kit")).setExecutor(new KitsCommand(this));
+        getLogger().info("Starting to load the commands... -> DONE");
 
         this.getLogger().info("Starting loading listeners...");
         this.getServer().getPluginManager().registerEvents(new PlayerInterface(this), this);

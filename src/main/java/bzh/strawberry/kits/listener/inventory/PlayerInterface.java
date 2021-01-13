@@ -32,18 +32,16 @@ public class PlayerInterface  implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e){
-        if(!(e.getWhoClicked() instanceof Player) && StrawKits.getInstance().getKPlayer(e.getWhoClicked().getUniqueId()) == null)
+        if (!(e.getWhoClicked() instanceof Player) && StrawKits.getInstance().getKPlayer(e.getWhoClicked().getUniqueId()) == null)
             return;
 
         AbstractInterface gui =  StrawKits.getInstance().getKPlayer(e. getWhoClicked().getUniqueId()).getOpenedGUI();
-
-        if(gui == null)
+        if (gui == null)
             return;
 
         String action = gui.getAction(e.getSlot());
-        if(action != null)
+        if (action != null)
             gui.onClick(e.getClick(),e.getCurrentItem(), action);
-
         e.setCancelled(true);
     }
 }

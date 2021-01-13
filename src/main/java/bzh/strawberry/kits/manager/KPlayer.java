@@ -11,13 +11,18 @@ import org.bukkit.entity.Player;
  */
 public class KPlayer {
 
+    /**
+     * @TODO KPlayer, pour gérer l'outil d'administration, mais aussi pour le visualiseur de kit
+     * Boolean pour le kit admin ?
+     * Boolean pour le kit viewer (ne pas oublier les events a bien disable)
+     *
+     */
+
     private Player player;
-    private boolean inventoryOpened;
     private AbstractInterface openedGUI;
 
     public KPlayer(Player player) {
         this.player = player;
-        this.inventoryOpened = false;
     }
 
     public Player getPlayer() {

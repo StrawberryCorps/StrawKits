@@ -1,11 +1,16 @@
 package bzh.strawberry.kits;
 
+import bzh.strawberry.kits.listener.inventory.PlayerInterface;
+import bzh.strawberry.kits.manager.KPlayer;
 import bzh.strawberry.kits.manager.KitsManager;
 import bzh.strawberry.kits.util.StorageUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.UUID;
 
 /*
  * This file StrawKits is part of a project StrawKits.StrawKits.
@@ -21,6 +26,7 @@ public class StrawKits extends JavaPlugin {
     public StorageUtil storageUtil;
 
     private KitsManager kitsManager;
+    private Collection<KPlayer> kPlayers;
 
     @Override
     public void onEnable() {
@@ -38,14 +44,15 @@ public class StrawKits extends JavaPlugin {
         }
         this.getLogger().info("Starting to connect to the database... -> DONE");
 
-        this.getLogger().info("Starting loading kits manager...");
+        this.getLogger().info("Starting loading kits...");
         this.kitsManager = new KitsManager();
-        this.getLogger().info("Starting loading kits manager... -> DONE");
+        this.getLogger().info("Starting loading kits... -> DONE");
 
         this.getLogger().info("Starting loading listeners...");
-
+        this.getServer().getPluginManager().registerEvents(new PlayerInterface(this), this);
         this.getLogger().info("Starting loading listeners... -> DONE");
 
+        this.kPlayers = new ArrayList<>();
         this.getLogger().info("Plugin enabled in "+(System.currentTimeMillis() - begin)+" ms.");
         this.getLogger().info("######################## [" + this.getDescription().getName() + " - " + this.getDescription().getVersion() + "] #################################");
     }
@@ -75,6 +82,14 @@ public class StrawKits extends JavaPlugin {
      */
     public KitsManager getKitsManager() {
         return kitsManager;
+    }
+
+    public KPlayer getKPlayer(UUID uuid) {
+        return this.kPlayers.stream().filter(kPlayer -> kPlayer.getPlayer().getUniqueId().equals(uuid)).findFirst().orElse(null);
+    }
+
+    public Collection<KPlayer> getkPlayers() {
+        return kPlayers;
     }
 
     /**

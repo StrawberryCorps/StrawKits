@@ -39,7 +39,7 @@ public class StorageUtil {
         try {
             Connection connection = getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "create table if not exists kits(id INTEGER constraint kits_pk primary key autoincrement, name varchar(255) not null, utilisation text not null);" +
+                    "create table if not exists kits(id integer constraint kits_pk primary key autoincrement, name varchar(255) not null, utilisation text not null);" +
                     "create unique index if not exists kits_name_uindex on kits (name);" +
                     "create table if not exists kit_content(kit_id integer references kits(id) on delete cascade, item text not null, position integer not null);" +
                     "create unique index if not exists kit_content_kit_id_position_uindex on kit_content (kit_id, position);" +

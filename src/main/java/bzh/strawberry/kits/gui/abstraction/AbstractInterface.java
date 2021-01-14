@@ -55,4 +55,9 @@ public abstract class AbstractInterface {
     public String getAction(int index){
         return this.actions.getOrDefault(index, null);
     }
+
+    public void clean() {
+        this.inventory.clear();
+        this.actions.clear();
+    }
 }

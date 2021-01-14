@@ -2,6 +2,7 @@ package bzh.strawberry.kits.manager;
 import org.bukkit.inventory.ItemStack;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -27,6 +28,7 @@ public class Kit {
         this.kit_id = kit_id;
         this.name = name;
         this.utilisation = utilisation;
+        this.items = new ArrayList<>();
     }
 
     /**
@@ -54,7 +56,17 @@ public class Kit {
         return items;
     }
 
-    public class KitItem {
+    @Override
+    public String toString() {
+        return "Kit{" +
+                "kit_id=" + kit_id +
+                ", name='" + name + '\'' +
+                ", utilisation=" + utilisation +
+                ", items=" + items +
+                '}';
+    }
+
+    public static class KitItem {
         private ItemStack itemStack;
         private int position;
 

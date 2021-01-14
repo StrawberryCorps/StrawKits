@@ -36,4 +36,12 @@ public class KPlayer {
     public void setOpenedGUI(AbstractInterface openedGUI) {
         this.openedGUI = openedGUI;
     }
+
+    @Override
+    public String toString() {
+        return "KPlayer{" +
+                "player=" + player +
+                ", openedGUI=" + openedGUI +
+                '}';
+    }
 }

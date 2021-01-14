@@ -8,8 +8,11 @@ import bzh.strawberry.kits.manager.KPlayer;
 import bzh.strawberry.kits.manager.KitsManager;
 import bzh.strawberry.kits.util.StorageUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.java.JavaPluginLoader;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,6 +34,14 @@ public class StrawKits extends JavaPlugin {
 
     private KitsManager kitsManager;
     private Collection<KPlayer> kPlayers;
+
+    public StrawKits() {
+        super();
+    }
+
+    protected StrawKits(JavaPluginLoader loader, PluginDescriptionFile description, File dataFolder, File file) {
+        super(loader, description, dataFolder, file);
+    }
 
     @Override
     public void onEnable() {

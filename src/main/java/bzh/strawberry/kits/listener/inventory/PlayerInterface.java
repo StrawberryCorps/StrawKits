@@ -25,13 +25,13 @@ public class PlayerInterface  implements Listener {
     }
 
     @EventHandler
-    public void onInventoryClose(InventoryCloseEvent e){
+    public void onInventoryClose(InventoryCloseEvent e) {
         if(e.getPlayer() instanceof Player && StrawKits.getInstance().getKPlayer(e.getPlayer().getUniqueId()).getOpenedGUI() != null)
             StrawKits.getInstance().getKPlayer(e.getPlayer().getUniqueId()).setOpenedGUI(null);
     }
 
     @EventHandler
-    public void onInventoryClick(InventoryClickEvent e){
+    public void onInventoryClick(InventoryClickEvent e) {
         if (!(e.getWhoClicked() instanceof Player) && StrawKits.getInstance().getKPlayer(e.getWhoClicked().getUniqueId()) == null)
             return;
 

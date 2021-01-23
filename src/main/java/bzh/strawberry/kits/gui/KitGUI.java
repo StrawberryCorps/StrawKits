@@ -69,14 +69,12 @@ public class KitGUI extends AbstractInterface {
             System.out.println(kit);
         } else if (action.startsWith("kit_") && clickType.isRightClick()) {
             Kit kit = StrawKits.getInstance().getKitsManager().getKit(action.substring(4).toLowerCase());
-
+            new KitViewerGUI(player, kit);
         }
 
     }
 
-
     public int pageMax() {
         return (StrawKits.getInstance().getKitsManager().getKits().size() / 10);
     }
-
 }

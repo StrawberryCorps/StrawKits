@@ -82,5 +82,13 @@ public class Kit {
         public int getPosition() {
             return position;
         }
+
+        @Override
+        public String toString() {
+            return "KitItem{" +
+                    "itemStack=" + itemStack +
+                    ", position=" + position +
+                    '}';
+        }
     }
 }

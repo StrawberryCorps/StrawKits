@@ -30,6 +30,7 @@ public class KitsManager {
     private void load() {
         Kit kit = new Kit(1, "a1", new JSONObject());
         kit.addItem(new Kit.KitItem(new ItemStackBuilder(Material.DIAMOND_SWORD), 1));
+        kit.addItem(new Kit.KitItem(new ItemStackBuilder(Material.DIRT), 12));
         kits.add(kit);
         kits.add(new Kit(2, "a2", new JSONObject()));
         kits.add(new Kit(3, "a3", new JSONObject()));
